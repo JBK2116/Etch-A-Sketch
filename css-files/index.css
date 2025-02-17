@@ -1,0 +1,137 @@
+/* Apply a retro pixelated font for that classic feel */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    height: 100vh;
+    background-color: #f4f4f4; /* Light background for contrast */
+    margin: 0;
+    padding: 0;
+    background-color: #2e2e2e; 
+}
+
+/* Retro header with bold colors */
+header {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2e2e2e; 
+    color: #ffcc00; 
+    padding: 20px;
+    border-bottom: 5px solid #ffcc00; 
+}
+
+/* Make the game title bold and larger for emphasis */
+#game-header {
+    font-size: 50px;
+    text-transform: uppercase;
+    letter-spacing: px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+/* Style for the instructions */
+#game-instructions {
+    font-size: 20px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); 
+    margin-top: 10px;
+}
+
+/* Main container styling */
+main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 30px;
+    align-items: center;
+    border: 5px solid #ffcc00; 
+    background-color: #282828; 
+    height: 40%;
+    width: 40%;
+    margin: auto;
+    border-radius: 20px; 
+    padding: 20px;
+}
+
+/* Game options wrapper section with space between buttons */
+#game-options {
+    width: 80%;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Color option buttons with a pixelated retro look */
+#game-color-options {
+    display: flex;
+    gap: 10px;
+}
+
+/*Individual Color Option Buttons */
+.game-btn {
+    background-color: #ffcc00;
+    color: #282828;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: 3px solid #282828;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.game-btn:hover {
+    background-color: #282828;
+    color: #ffcc00;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Grid size slider styling */
+#game-grid-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#game-grid-description {
+    color: #ffcc00;
+    font-size: 18px;
+}
+
+/* Slider styling */
+#game-grid-slider {
+    width: 150px;
+    background-color: #ffcc00;
+    border: none;
+    height: 10px;
+    border-radius: 5px;
+}
+
+/* Game Grid container */
+#game-grid {
+    border: 5px solid #ffcc00;
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+    height: 50%;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+/* Grid items */
+#game-grid div {
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    margin: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid #ffcc00;
+}
+
+#game-grid div:hover {
+    background-color: #ffcc00;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
