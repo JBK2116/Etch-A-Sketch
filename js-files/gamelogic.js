@@ -4,6 +4,7 @@ let gameColor = "white";
 let gridSize = 2;
 let gridSlider = document.getElementById("game-grid-slider")
 let gridDescription = document.getElementById("game-grid-description");
+let resetGameBtn = document.getElementById("reset-game");
 
 function getColor() { //Get The Users Desired Color For Sketching To Use It
     let blackColor = document.getElementById("black-btn");
@@ -18,6 +19,12 @@ function getColor() { //Get The Users Desired Color For Sketching To Use It
     rainbowColor.addEventListener("click", function() {
         gameColor = "rainbow";
     })
+    let colorButtons = document.querySelectorAll(".game-btn");
+    colorButtons.forEach(btn => btn.addEventListener("click",() => {
+        colorButtons.forEach(button => button.style.backgroundColor = '');
+        btn.style.backgroundColor = '#666666';
+    }))
+    
 }
 
 function getGridSize() { //Get The Users Desired Grid Size For Sketching To Use It
@@ -29,21 +36,19 @@ function getGridSize() { //Get The Users Desired Grid Size For Sketching To Use 
 
 function createGrid(gridSize) {
     const gameGrid = document.getElementById("game-grid");
-
-    // First, empty the grid so that a new one can be built
     gameGrid.innerHTML = "";
-
-    // Calculate the size of each grid cell based on the container's width and height
-    const containerSize = gameGrid.clientWidth; // Width of the grid container
-    const cellSize = containerSize / gridSize; // Size of each grid cell
-
-    // Set the CSS grid properties for the gameGrid container
+    
+    // First set the container to be square
+    const containerWidth = gameGrid.clientWidth;
+    gameGrid.style.height = `${containerWidth}px`;
+    
+    // Then calculate cell size AFTER setting container dimensions
+    const cellSize = (containerWidth - 2) / gridSize; // Subtract border width
+    
     gameGrid.style.display = "grid";
-    gameGrid.style.gridTemplateColumns = `repeat(${gridSize}, ${cellSize}px)`;
-    gameGrid.style.gridTemplateRows = `repeat(${gridSize}, ${cellSize}px)`;
-    gameGrid.style.height = `${containerSize}px`; // Set height to match the width
-
-    // Create the grid cells
+    gameGrid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+    gameGrid.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
+    
     for (let i = 0; i < gridSize * gridSize; i++) {
         let singleGridDiv = document.createElement("div");
         gameGrid.appendChild(singleGridDiv);
@@ -67,8 +72,19 @@ function changeGridColor() {
     })
 }
 
+function resetGame() {
+    gameColor = "white";
+    createGrid(getGridSize());
+    changeGridColor();
+}
+
 function main() {
-    createGrid(100)
+    resetGameBtn.addEventListener("click", resetGame);
+    getColor()
+    gridSlider.oninput = function() {
+        createGrid(getGridSize());
+        changeGridColor();
+    };
 }
 
 main()

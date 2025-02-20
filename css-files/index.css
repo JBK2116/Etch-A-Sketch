@@ -107,7 +107,7 @@ main {
 
 /* Slider styling */
 #game-grid-slider {
-    width: 100px;
+    width: 120px;
     background-color: #ffcc00;
     border: none;
     height: 10px;
@@ -116,15 +116,14 @@ main {
 
 /* Game Grid container */
 #game-grid {
-    display: flex;
     border: 5px solid #ffcc00;
     width: 90%;
+    height: 90%;
     max-width: 700px;
-    height: 50vh;
+    max-height: 700px;
+    aspect-ratio: 1 / 1;
     margin-top: 20px;
-    border-radius: 10px;
     box-sizing: border-box;
-    overflow: hidden;
 }
 
 /* Grid items */
